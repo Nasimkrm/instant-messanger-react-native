@@ -1,0 +1,46 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\nassi\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\nassi\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\cmd;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\MongoDB\Server\4.4\bin;C:\msys64\mingw64\bin;C:\Program Files\Git\cmd;C:\Users\nassi\OneDrive\Documents\Additional Programs\Chrome Driver;C:\Program Files\nodejs;C:\Users\nassi\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\nassi\AppData\Local\Programs\Python\Python39;C:\Users\nassi\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\nassi\AppData\Local\Programs\Microsoft VS Code\bin;C:\AdditionalPackages\protoc\bin;C:\Program Files\IBM\Cloud\bin;C:\Users\nassi\models\research\object_detection;C:\Users\nassi\models\research\slim;C:\Users\nassi\models\research;C:\Users\nassi\AppData\Local\Hyper\app-3.0.2\resources\bin;C:\Users\nassi\AppData\Local\Programs\Hyper\resources\bin;C:\Users\nassi\Downloads\mongosh-1.3.1-win32-x64\mongosh-1.3.1-win32-x64\bin\mongosh.exe;C:\Users\nassi\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOSPC: no space left on device, copyfile 'C:\Users\nassi\AppData\Local\Yarn\Cache\v6\npm-jsc-android-250230.2.1-3790313a970586a03ab0ad47defbc84df54f1b83-integrity\node_modules\jsc-android\dist\org\webkit\android-jsc-intl\r250230\android-jsc-intl-r250230.aar' -> 'C:\Users\nassi\DoneWithIt\node_modules\jsc-android\dist\org\webkit\android-jsc-intl\r250230\android-jsc-intl-r250230.aar'
+
+npm manifest: 
+  {
+    "name": "donewithit",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web"
+    },
+    "dependencies": {
+      "expo": "~47.0.12",
+      "expo-status-bar": "~1.4.2",
+      "react": "18.1.0",
+      "react-native": "0.70.5"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
