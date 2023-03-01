@@ -1,21 +1,11 @@
 import React from "react";
-import { Linking, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Navbar() {
   return (
     <View style={styles.header}>
-      <Text
-        style={styles.title}
-        onPress={() => Linking.openURL("http://localhost:19006/")}
-      >
-        Blinker
-      </Text>
-      <Text
-        style={styles.title}
-        onPress={() => Linking.openURL("http://localhost:19006/")}
-      >
-        Login
-      </Text>
+      <Text style={styles.title}>Blinker</Text>
+      {/* <Text style={styles.title}>Login</Text> */}
     </View>
   );
 }
@@ -30,9 +20,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
+    backgroundColor: "blue",
+    borderRadius: "50%",
     textAlign: "left",
-    color: "blue",
-    fontSize: 20,
+    color: "#fff",
+    fontSize: 18,
     fontWeight: "bold",
+    padding: "10px",
   },
 });

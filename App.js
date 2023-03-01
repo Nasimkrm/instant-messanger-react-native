@@ -1,38 +1,74 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Button,
-  TextInput,
-  FlatList,
-  Text,
-} from "react-native";
-import ChatBox from "./components/ChatBox";
+import React, { useContext, useEffect, useState, createContext } from "react";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import Navbar from "./components/Navbar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SignUpContainer from "./components/SignUpContainer";
+import Chatroom from "./components/Chatroom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./config/firebase";
+import { REACT_APP_API_KEY } from "@env";
+
+const Stack = createNativeStackNavigator();
+const AuthenticatedUserContext = createContext({});
+
+const AuthenticatedUserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  return (
+    <AuthenticatedUserContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthenticatedUserContext.Provider>
+  );
+};
+
+function ChatStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Chatroom" component={Chatroom} />
+    </Stack.Navigator>
+  );
+}
+
+function AuthStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Sign Up" component={SignUpContainer} />
+    </Stack.Navigator>
+  );
+}
+
+function RootNavigator() {
+  const { user, setUser } = useContext(AuthenticatedUserContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (authenticatedUser) => {
+      authenticatedUser ? setUser(authenticatedUser) : setUser(null);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, [user]);
+
+  if (loading) {
+    return (
+      <View>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+  return (
+    <NavigationContainer>
+      {user ? <ChatStack /> : <AuthStack />}
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
-  const [messages, setMessages] = useState([
-    { text: "Hello", key: "1" },
-    { text: "Call me soon", key: "2" },
-  ]);
-  const submitHandler = (text) => {
-    setMessages((prevMessages) => {
-      return [{ text: text, key: Math.random().toString() }, ...prevMessages];
-    });
-  };
   return (
-    <View style={styles.container}>
+    <AuthenticatedUserProvider>
       <Navbar />
-      <View style={styles.content}>
-        <FlatList
-          data={messages}
-          renderItem={({ item }) => (
-            <Text style={styles.item}>{item.text}</Text>
-          )}
-        />
-        <ChatBox submitHandler={submitHandler} />
-      </View>
-    </View>
+      <RootNavigator />
+    </AuthenticatedUserProvider>
   );
 }
 
@@ -49,15 +85,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 10,
     marginTop: 20,
-    marginHorizontal: 10,
-    borderWidth: 1,
-    borderColor: "#777",
-  },
-  item: {
-    marginTop: 24,
-    padding: 30,
-    backgroundColor: "aliceblue",
-    fontSize: 15,
     marginHorizontal: 10,
   },
 });
