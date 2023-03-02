@@ -25,7 +25,7 @@ export default function Welcome({ navigation }) {
         <Text
           style={{
             fontSize: 16,
-            fontWeight: 400,
+            fontWeight: "400",
           }}
         >
           Join our community today and enjoy endless conversations with your
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     display: "flex",
   },
 });

@@ -73,7 +73,7 @@ export default function SignUpContainer({ navigation }) {
           defaultValue={password}
         />
         <TouchableOpacity onPress={handlePress} style={styles.button}>
-          <Text style={{ color: "#fff", fontSize: 20, fontWeight: 700 }}>
+          <Text style={{ color: "#fff", fontSize: 20, fontWeight: "700" }}>
             Sign Up
           </Text>
         </TouchableOpacity>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#A68250",
     color: "#fff",
-    fontWeight: 800,
+    fontWeight: "800",
     textAlign: "center",
     borderRadius: 20,
     padding: 20,
