@@ -7,7 +7,8 @@ import SignUpContainer from "./components/SignUpContainer";
 import Chatroom from "./components/Chatroom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase";
-import { REACT_APP_API_KEY } from "@env";
+import LoginContainer from "./components/LoginContainer";
+import Welcome from "./components/Welcome";
 
 const Stack = createNativeStackNavigator();
 const AuthenticatedUserContext = createContext({});
@@ -32,7 +33,9 @@ function ChatStack() {
 function AuthStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Sign Up" component={SignUpContainer} />
+      <Stack.Screen name="Login" component={LoginContainer} />
     </Stack.Navigator>
   );
 }
@@ -66,7 +69,8 @@ function RootNavigator() {
 export default function App() {
   return (
     <AuthenticatedUserProvider>
-      <Navbar />
+      {/* <Navbar /> */}
+
       <RootNavigator />
     </AuthenticatedUserProvider>
   );

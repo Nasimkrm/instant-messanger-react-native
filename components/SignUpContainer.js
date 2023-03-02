@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Button,
   StyleSheet,
   Text,
   TextInput,
@@ -52,6 +51,10 @@ export default function SignUpContainer({ navigation }) {
       .catch(() => console.log("Failed"));
   };
 
+  const loginHandler = () => {
+    navigation.navigate("Login");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -70,8 +73,19 @@ export default function SignUpContainer({ navigation }) {
           defaultValue={password}
         />
         <TouchableOpacity onPress={handlePress} style={styles.button}>
-          <Text>Sign Up</Text>
+          <Text style={{ color: "#fff", fontSize: 20, fontWeight: 700 }}>
+            Sign Up
+          </Text>
         </TouchableOpacity>
+        <Text
+          style={{
+            textAlign: "center",
+            marginTop: 20,
+          }}
+          onPress={loginHandler}
+        >
+          Already a member? Click here to login.
+        </Text>
       </View>
     </View>
   );
@@ -80,26 +94,27 @@ export default function SignUpContainer({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F4F5F7",
-    alignItems: "center",
+    backgroundColor: "rgba(166, 130, 80, 0.2)",
     justifyContent: "center",
   },
   content: {
-    width: "50%",
-
+    justifyContent: "center",
     padding: 20,
-    backgroundColor: "#fff",
   },
   input: {
-    borderWidth: 1,
-    borderRadius: "10px",
+    backgroundColor: "#fff",
+
+    borderRadius: 10,
     padding: 20,
     margin: 10,
   },
   button: {
+    backgroundColor: "#A68250",
+    color: "#fff",
+    fontWeight: 800,
     textAlign: "center",
-    backgroundColor: "aliceblue",
-    padding: 10,
+    borderRadius: 20,
+    padding: 20,
     marginTop: 20,
   },
 });
