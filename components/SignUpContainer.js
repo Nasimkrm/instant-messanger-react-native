@@ -63,6 +63,7 @@ export default function SignUpContainer({ navigation }) {
           placeholder="Enter Email"
           onChangeText={validateEmail}
           defaultValue={email}
+          autoCapitalize="none"
         />
         <TextInput
           style={styles.input}
@@ -71,6 +72,7 @@ export default function SignUpContainer({ navigation }) {
           secureTextEntry="true"
           onChangeText={validatePassword}
           defaultValue={password}
+          autoCapitalize="none"
         />
         <TouchableOpacity onPress={handlePress} style={styles.button}>
           <Text style={{ color: "#fff", fontSize: 20, fontWeight: "700" }}>

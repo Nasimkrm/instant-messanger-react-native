@@ -21,11 +21,12 @@ export default function Welcome({ navigation }) {
         source={require("../assets/socialImage.jpg")}
       />
       <View style={styles.content}>
-        <Text style={{ fontSize: 32, fontWeight: 800 }}>Stay connected</Text>
+        <Text style={{ fontSize: 32, fontWeight: "800" }}>Stay connected</Text>
         <Text
           style={{
             fontSize: 16,
             fontWeight: "400",
+            lineHeight: 30,
           }}
         >
           Join our community today and enjoy endless conversations with your
