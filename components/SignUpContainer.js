@@ -119,8 +119,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    flex: 1,
-    flexDirection: "row",
     backgroundColor: "#A68250",
     color: "#fff",
     fontWeight: "800",
