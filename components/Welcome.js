@@ -42,7 +42,7 @@ export default function Welcome({ navigation }) {
           <TouchableOpacity
             style={{
               ...styles.button,
-              background: "rgba(254, 254, 255, 0.78)",
+              backgroundColor: "rgba(254, 254, 255, 0.78)",
             }}
             onPress={loginHandler}
           >
