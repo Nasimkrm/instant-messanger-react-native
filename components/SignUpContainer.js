@@ -75,7 +75,15 @@ export default function SignUpContainer({ navigation }) {
           autoCapitalize="none"
         />
         <TouchableOpacity onPress={handlePress} style={styles.button}>
-          <Text style={{ color: "#fff", fontSize: 20, fontWeight: "700" }}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 20,
+              fontWeight: "700",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
             Sign Up
           </Text>
         </TouchableOpacity>
@@ -111,12 +119,14 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
+    flex: 1,
+    flexDirection: "row",
     backgroundColor: "#A68250",
     color: "#fff",
     fontWeight: "800",
-    textAlign: "center",
     borderRadius: 20,
-    padding: 20,
+    padding: 15,
     marginTop: 20,
+    marginHorizontal: 10,
   },
 });
